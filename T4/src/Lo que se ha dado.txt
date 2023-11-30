@@ -1,0 +1,2 @@
+día 14 se ha dado:
+	.substring()

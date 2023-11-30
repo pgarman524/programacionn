@@ -1,0 +1,2 @@
+public static void main (string[]args){				-----> Siempre utilizar para java si quieres que tu script se ejecute. todo lo que quiereas que se ejecute después ha de estar dedntro de los {}
+}
