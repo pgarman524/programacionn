@@ -35,7 +35,7 @@ public class CuentasBancarias {
         //cantidad negativa
         if(cantidadIngreso < 0){
             System.err.println("La cantidad a ingresar es negativa");
-            
+
         }
         else if (cantidadIngreso > 3000) {
             System.err.println("Cuidado, esa cantidad es mayor al permitido, vamos a contactar con Hacienda");
@@ -67,6 +67,20 @@ public class CuentasBancarias {
         }
 
     }
+
+    public static boolean comprobarIban (String iban) {
+       if ( iban.length() >  22 ){
+           System.err.println("El iban es erroneo");
+           return false;
+       } else if (iban.length() < 22) {
+           
+       }
+        return true;
+    }
+
+
+
+
 
     /**
      * Clase para mostar los datos de la cuenta
