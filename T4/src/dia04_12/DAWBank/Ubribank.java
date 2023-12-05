@@ -28,5 +28,7 @@ public class Ubribank {
 
         nueva.mostrarSaldo();
 
+    nueva.comprobarIban("ES6621700468401234567891");
+
     }
 }

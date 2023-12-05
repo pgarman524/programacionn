@@ -33,11 +33,10 @@ public class CuentasBancarias {
      */
     public void ingresar(double cantidadIngreso) {
         //cantidad negativa
-        if(cantidadIngreso < 0){
+        if (cantidadIngreso < 0) {
             System.err.println("La cantidad a ingresar es negativa");
 
-        }
-        else if (cantidadIngreso > 3000) {
+        } else if (cantidadIngreso > 3000) {
             System.err.println("Cuidado, esa cantidad es mayor al permitido, vamos a contactar con Hacienda");
             this.saldo += cantidadIngreso;
         } else {
@@ -68,18 +67,42 @@ public class CuentasBancarias {
 
     }
 
-    public static boolean comprobarIban (String iban) {
-       if ( iban.length() >  22 ){
-           System.err.println("El iban es erroneo");
-           return false;
-       } else if (iban.length() < 22) {
-           
-       }
-        return true;
+    public static boolean comprobarIban(String iban) {
+        if (iban.length() < 24) {
+            System.err.println("El iban es erroneo");
+            return false;
+        } else {
+            if (iban.substring(0, 2).equals("ES")) {
+
+                try {
+                    String parteNumerica = iban.substring(2, 24);
+
+                    // for que recorra el String parteNumerica
+                    // cada i... haces un charAt(i) y compruebas que ese caracter es un numero
+                    for (int i = 0; i <= parteNumerica.length() - 1; i++) {
+
+                        Integer.parseInt(parteNumerica.charAt(i)+"");
+                        System.out.println("Funciona");
+
+
+
+                    }
+
+                    return true;
+                } catch (NumberFormatException ex) {
+                    ex.printStackTrace();
+                    System.out.println("El iban no es correcto");
+                    return false;
+                }
+
+            } else {
+                System.err.println("IBAN incorrecto.");
+                return false;
+            }
+
+        }
+
     }
-
-
-
 
 
     /**
@@ -123,8 +146,11 @@ public class CuentasBancarias {
     public void mostrarMovimientos() {
         for (int i = 0; i < movimientos.length; i++) {
             System.out.println(movimientos[i]);
+            movimientos = new String[1];
 
 
         }
     }
+
+
 }
