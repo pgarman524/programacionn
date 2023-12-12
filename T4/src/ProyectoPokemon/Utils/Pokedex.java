@@ -616,6 +616,167 @@ public class Pokedex {
                 return 1;
             }
         }
+        //************SINIESTRO*************
+        if (tipoAtaque.nombre.equals("Siniestro")){
+            if (tipoRecibeAtaque.nombre.equals("Acero")){
+                return 1;
+            }else if (tipoRecibeAtaque.nombre.equals("Agua")){
+                return 1;
+            }else if (tipoRecibeAtaque.nombre.equals("Bicho")){
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Dragon")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Electrico")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Fantasma")) {
+                return 1.5;
+            } else if (tipoRecibeAtaque.nombre.equals("Fuego")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Hada")) {
+                return 0.5;
+            } else if (tipoRecibeAtaque.nombre.equals("Hielo")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Lucha")) {
+                return 1.5;
+            } else if (tipoRecibeAtaque.nombre.equals("Normal")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Planta")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Psiquico")) {
+                return 1.5;
+            } else if (tipoRecibeAtaque.nombre.equals("Roca")) {
+                return 0.5;
+            } else if (tipoRecibeAtaque.nombre.equals("Siniestro")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Tierra")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Veneno")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Volador")) {
+                return 1;
+            }
+        }
+        //************Tierra*************
+        if (tipoAtaque.nombre.equals("Tierra")){
+            if (tipoRecibeAtaque.nombre.equals("Acero")){
+                return 1.5;
+            }else if (tipoRecibeAtaque.nombre.equals("Agua")){
+                return 1;
+            }else if (tipoRecibeAtaque.nombre.equals("Bicho")){
+                return 0.5;
+            } else if (tipoRecibeAtaque.nombre.equals("Dragon")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Electrico")) {
+                return 1.5;
+            } else if (tipoRecibeAtaque.nombre.equals("Fantasma")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Fuego")) {
+                return 1.5;
+            } else if (tipoRecibeAtaque.nombre.equals("Hada")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Hielo")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Lucha")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Normal")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Planta")) {
+                return 0.5;
+            } else if (tipoRecibeAtaque.nombre.equals("Psiquico")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Roca")) {
+                return 1.5;
+            } else if (tipoRecibeAtaque.nombre.equals("Siniestro")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Tierra")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Veneno")) {
+                return 1.5;
+            } else if (tipoRecibeAtaque.nombre.equals("Volador")) {
+                return 0;
+            }
+        }
+        //************VENENO*************
+        if (tipoAtaque.nombre.equals("Veneno")){
+            if (tipoRecibeAtaque.nombre.equals("Acero")){
+                return 0;
+            }else if (tipoRecibeAtaque.nombre.equals("Agua")){
+                return 1;
+            }else if (tipoRecibeAtaque.nombre.equals("Bicho")){
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Dragon")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Electrico")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Fantasma")) {
+                return 1.5;
+            } else if (tipoRecibeAtaque.nombre.equals("Fuego")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Hada")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Hielo")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Lucha")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Normal")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Planta")) {
+                return 1.5;
+            } else if (tipoRecibeAtaque.nombre.equals("Psiquico")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Roca")) {
+                return 0.5;
+            } else if (tipoRecibeAtaque.nombre.equals("Siniestro")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Tierra")) {
+                return 0.5;
+            } else if (tipoRecibeAtaque.nombre.equals("Veneno")) {
+                return 0.5;
+            } else if (tipoRecibeAtaque.nombre.equals("Volador")) {
+                return 1;
+            }
+        }
+        //************VOLADOR*************
+        if (tipoAtaque.nombre.equals("Volador")){
+            if (tipoRecibeAtaque.nombre.equals("Acero")){
+                return 0.5;
+            }else if (tipoRecibeAtaque.nombre.equals("Agua")){
+                return 1;
+            }else if (tipoRecibeAtaque.nombre.equals("Bicho")){
+                return 1.5;
+            } else if (tipoRecibeAtaque.nombre.equals("Dragon")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Electrico")) {
+                return 0.5;
+            } else if (tipoRecibeAtaque.nombre.equals("Fantasma")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Fuego")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Hada")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Hielo")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Lucha")) {
+                return 1.5;
+            } else if (tipoRecibeAtaque.nombre.equals("Normal")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Planta")) {
+                return 1.5;
+            } else if (tipoRecibeAtaque.nombre.equals("Psiquico")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Roca")) {
+                return 0.5;
+            } else if (tipoRecibeAtaque.nombre.equals("Siniestro")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Tierra")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Veneno")) {
+                return 1;
+            } else if (tipoRecibeAtaque.nombre.equals("Volador")) {
+                return 1;
+            }
+        }
+
         return 0;
 
     }
