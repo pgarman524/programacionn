@@ -1,5 +1,7 @@
 package ProyectoPokemon.Clases;
 
+import static ProyectoPokemon.Utils.Pokedex.checkEfectividad;
+
 public class Pokemon {
     /*
     nombre: String
@@ -12,6 +14,7 @@ public class Pokemon {
     public String nombre;
     public String lore;
     public Tipo tipo;
+
     public double vida;
     public Ataque[] ataques;
 
@@ -20,11 +23,17 @@ public class Pokemon {
         this.nombre = nombre;
         this.vida = vida;
         this.tipo = tipo;
-
-
-
-
     }
 
+    public void recibirAtk (Ataque a){
+//* checkEfectividad(tipo, tipo, Pokemon.this)
+
+        this.vida = this.vida - a.danio * checkEfectividad(this.tipo, this.tipo, Pokemon.this);
+    }
+
+    public void curarVida (Ataque a){
+        this.vida = this.vida + a.danio;
+
+    }
 
 }

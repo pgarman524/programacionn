@@ -51,6 +51,7 @@ public class Pokedex {
      * @param tipoRecibeAtaque tipo al que el ataque es afectado
      * @return (double) modificador del danio del ataque (1.5 muy efectivo, 1 normal, 0,5 poco efectivo, 0 inmune)
      */
+    //Pokemon p
     public static double checkEfectividad(Tipo tipoAtaque, Tipo tipoRecibeAtaque, Pokemon p) {
         //Comprueba la efectividad del ataque entre dos tipos
         //Devuelve un modificador de danio (1.5, 1, 0.5 o 0)
