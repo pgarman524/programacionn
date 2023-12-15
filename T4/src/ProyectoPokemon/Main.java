@@ -313,69 +313,101 @@ public class Main {
         int elegirAtaqueAsh;
         int elegirAtaqueGary;
 
+        int pokAsh = 0;
+        int pokGary = 0;
 
         do {
-            System.out.println(entrenador1[0].nombre + " debe elegir qué usar: ");
-            System.out.println("\n 1. " + entrenador1[0].ataques[0].nombre);
-            System.out.println("\n 2. " + entrenador1[0].ataques[1].nombre);
-            System.out.println("\n 3. " + entrenador1[0].ataques[2].nombre);
-            System.out.println("\n 4. " + entrenador1[0].ataques[3].nombre);
+            System.out.println(entrenador1[pokAsh].nombre + " debe elegir qué usar: ");
+            for(int i=0; i<entrenador1[pokAsh].ataques.length && entrenador1[pokAsh].ataques[i] != null; i++) {
+                System.out.print("\n"+(i+1)+"." + entrenador1[pokAsh].ataques[i].nombre);
+            }
+
 
 
             elegirAtaqueAsh = scan.nextInt();
 
             switch (elegirAtaqueAsh) {
                 case 1:
-                    entrenador2[0].recibirAtk(entrenador1[0].ataques[0]);
+                    entrenador2[pokGary].recibirAtk(entrenador1[pokAsh].ataques[0]);
                     System.out.println("El pokemon de Gary, " + entrenador2[0].nombre + " tiene ahora " + entrenador2[0].vida);
                     break;
                 case 2:
-                    entrenador2[0].recibirAtk(entrenador1[0].ataques[1]);
+                    entrenador2[pokGary].recibirAtk(entrenador1[pokAsh].ataques[1]);
                     System.out.println("El pokemon de Gary, " + entrenador2[0].nombre + " tiene ahora " + entrenador2[0].vida);
                     break;
                 case 3:
-                    entrenador2[0].recibirAtk(entrenador1[0].ataques[2]);
+                    entrenador2[pokGary].recibirAtk(entrenador1[pokAsh].ataques[2]);
                     System.out.println("El pokemon de Gary, " + entrenador2[0].nombre + " tiene ahora " + entrenador2[0].vida);
                     break;
                 case 4:
-                    entrenador2[0].recibirAtk(entrenador1[0].ataques[3]);
+                    entrenador2[pokGary].recibirAtk(entrenador1[pokAsh].ataques[3]);
                     System.out.println("El pokemon de Gary, " + entrenador2[0].nombre + " tiene ahora " + entrenador2[0].vida);
                     break;
+            }
+            if (entrenador2[pokGary].vida <= 0){
+                System.out.println("El pokemon de Gary, " + entrenador2[pokGary].nombre + " ha caido derrotado. Saca su sigueinte pokemon");
+                pokGary++;
             }
 
 
             //***********
 
 
-            System.out.println(entrenador2[0].nombre + " debe elegir qué usar: ");
-            System.out.println("\n 1. " + entrenador2[0].ataques[0].nombre);
-            System.out.println("\n 2. " + entrenador2[0].ataques[1].nombre);
-            System.out.println("\n 3. " + entrenador2[0].ataques[2].nombre);
-            System.out.println("\n 4. " + entrenador2[0].ataques[3].nombre);
+            System.out.println(entrenador2[pokGary].nombre + " debe elegir qué usar: ");
+            for(int i=0; i<entrenador2[pokGary].ataques.length && entrenador2[pokGary].ataques[i] != null; i++) {
+                System.out.print("\n"+(i+1)+"." + entrenador2[pokGary].ataques[i].nombre);
+            }
 
 
             elegirAtaqueGary = scan.nextInt();
 
-            switch (elegirAtaqueAsh) {
+            switch (elegirAtaqueGary) {
                 case 1:
-                    entrenador1[0].recibirAtk(entrenador1[0].ataques[0]);
+                    entrenador1[pokAsh].recibirAtk(entrenador2[pokGary].ataques[0]);
                     System.out.println("El pokemon de Gary, " + entrenador1[0].nombre + " tiene ahora " + entrenador1[0].vida);
                     break;
                 case 2:
-                    entrenador1[0].recibirAtk(entrenador1[0].ataques[1]);
+                    entrenador1[pokAsh].recibirAtk(entrenador2[pokGary].ataques[1]);
                     System.out.println("El pokemon de Gary, " + entrenador1[0].nombre + " tiene ahora " + entrenador1[0].vida);
                     break;
                 case 3:
-                    entrenador1[0].recibirAtk(entrenador1[0].ataques[2]);
+                    entrenador1[pokAsh].recibirAtk(entrenador2[pokGary].ataques[2]);
                     System.out.println("El pokemon de Gary, " + entrenador1[0].nombre + " tiene ahora " + entrenador1[0].vida);
                     break;
                 case 4:
-                    entrenador1[0].recibirAtk(entrenador1[0].ataques[3]);
+                    entrenador1[pokAsh].recibirAtk(entrenador2[pokGary].ataques[3]);
                     System.out.println("El pokemon de Gary, " + entrenador1[0].nombre + " tiene ahora " + entrenador1[0].vida);
                     break;
             }
+            if (entrenador1[pokAsh].vida <= 0){
+                System.out.println("El pokemon de Ash, " + entrenador1[pokAsh].nombre + " ha caido derrotado. Saca su sigueinte pokemon");
+                pokAsh++;
+            }
 
 
-        } while (entrenador1[0].vida != 0 || entrenador2[0].vida != 0);
+        } while (pokAsh < 3 || pokGary < 3);
+
+        /*
+        Necesito que cuando un pokemon muera, este se pase al siguiente:
+            A) Usar if y crear interminables variables
+            B) Usar Switch y boolean para cuando un pokemon muera  este sea true. Si true, pokemon ash2 vs pokemon gary1 (Pero y si ahora muere gary1??)
+            C) Usar For y que si i =< 0 pase al siguiente pokemon
+
+            for (int i = 0; i < entrenador1.length - 1; i++) {
+          do{
+
+                -pokemon Ash[i] if .vidas es <=0 then -> i++
+
+                -
+                }
+            }
+         */
+
+
+
+
+
+
+
     }
 }

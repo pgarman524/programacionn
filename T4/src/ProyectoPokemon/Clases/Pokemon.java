@@ -28,7 +28,7 @@ public class Pokemon {
     public void recibirAtk (Ataque a){
 //* checkEfectividad(tipo, tipo, Pokemon.this)
 
-        this.vida = this.vida - a.danio * checkEfectividad(this.tipo, this.tipo, Pokemon.this);
+        this.vida = this.vida - a.danio * checkEfectividad(a.tipo, this.tipo, Pokemon.this);
     }
 
     public void curarVida (Ataque a){
