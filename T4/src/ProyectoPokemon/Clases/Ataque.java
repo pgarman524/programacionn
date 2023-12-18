@@ -4,8 +4,9 @@ public class Ataque {
     public String nombre;
     public Tipo tipo;
     public int danio;
+    public double recVida;
 
-    public Ataque (String nombre, Tipo tipo, int danio){
+    public Ataque (String nombre, Tipo tipo, int danio, int recVida){
 
         //Establece el nombre del ataque
         // ->No hay restricciones
@@ -20,7 +21,7 @@ public class Ataque {
         this.danio = danio;
         this.nombre = nombre;
         this.tipo = tipo;
-
+        this.recVida = recVida;
 
     }
 

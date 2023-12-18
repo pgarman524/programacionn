@@ -26,14 +26,17 @@ public class Pokemon {
     }
 
     public void recibirAtk (Ataque a){
-//* checkEfectividad(tipo, tipo, Pokemon.this)
-
-        this.vida = this.vida - a.danio * checkEfectividad(a.tipo, this.tipo, Pokemon.this);
+//this.vida (la vida del pokemon rival) = this.vida (vida pokemon rival) - a.danio (daño del ataque que realiza el pokemon seleccionado) * checkEfectividad (si el tipo del atacante es fuerte o debil contra el tipo que recibe)
+if (a.danio > 0) {
+    this.vida = this.vida - a.danio * checkEfectividad(a.tipo, this.tipo, Pokemon.this);
+}else {
+    //Pokemon.this = curarVida() + this.vida;
+}
     }
 
-    public void curarVida (Ataque a){
-        this.vida = this.vida + a.danio;
-
+    public double curarVida (){
+   // return vida + recVida;
+return  0;
     }
 
 }

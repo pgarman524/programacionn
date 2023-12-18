@@ -5,9 +5,16 @@ import ProyectoPokemon.Clases.Pokemon;
 import ProyectoPokemon.Clases.Tipo;
 import ProyectoPokemon.Utils.Pokedex;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
+    public static final String ANSI_BLUE = "\u001B[34m";
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_YELLOW = "\u001B[33m";
+    public static final String ANSI_PURPLE = "\u001B[35m";
+
     /**
      * -> Crear 6 pokemon
      * -Crear todos los ataques
@@ -40,36 +47,36 @@ public class Main {
         //***********Ataques de pokemon**************
         //*******************************************
         //PIKACHU
-        Ataque impactrueno = new Ataque("Impactrueno", electrico, 40);
-        Ataque ataqueRapido = new Ataque("Ataque Rápido", normal, 40);
-        Ataque trueno = new Ataque("Trueno", electrico, 80);
-        Ataque atizar = new Ataque("Atizar", normal, 110);
+        Ataque impactrueno = new Ataque("Impactrueno", electrico, 40, 0);
+        Ataque ataqueRapido = new Ataque("Ataque Rápido", normal, 40, 0);
+        Ataque trueno = new Ataque("Trueno", electrico, 80, 0);
+        Ataque atizar = new Ataque("Atizar", normal, 110, 0);
 
         //SUNFLORA
-        Ataque hojaAfilada = new Ataque("Hoja Afilada", planta, 55);
-        Ataque recurrente = new Ataque("Recurrente", planta, 10);
-        Ataque danzaPetalo = new Ataque("Danza Pétalo", planta, 70);
-        Ataque rayoSolar = new Ataque("Rayo Solar", planta, 110);
+        Ataque hojaAfilada = new Ataque("Hoja Afilada", planta, 55, 0);
+        Ataque recurrente = new Ataque("Recurrente", planta, 10, 0);
+        Ataque danzaPetalo = new Ataque("Danza Pétalo", planta, 70, 0);
+        Ataque rayoSolar = new Ataque("Rayo Solar", planta, 110, 0);
 
         //HAUNTER
-        Ataque puñoSombra = new Ataque("Puño Sombra", fantasma, 60);
-        Ataque golpeBajo = new Ataque("Golpe Bajo", siniestro, 70);
-        Ataque vendetta = new Ataque("Vendetta", siniestro, 50);
-        Ataque bolaSombra = new Ataque("Bola Sombra", fantasma, 80);
+        Ataque puñoSombra = new Ataque("Puño Sombra", fantasma, 60, 0);
+        Ataque golpeBajo = new Ataque("Golpe Bajo", siniestro, 70, 0);
+        Ataque vendetta = new Ataque("Vendetta", siniestro, 50, 0);
+        Ataque bolaSombra = new Ataque("Bola Sombra", fantasma, 80, 0);
 
         //VAPOREON
-        Ataque pistolaAgua = new Ataque("Pistola Agua", agua, 40);
-        Ataque acuaAro = new Ataque("Acua Aro", agua, 40);
-        Ataque ultimaBaza = new Ataque("Ultima Baza", normal, 140);
+        Ataque pistolaAgua = new Ataque("Pistola Agua", agua, 40, 0);
+        Ataque acuaAro = new Ataque("Acua Aro", agua, 0, 40);
+        Ataque ultimaBaza = new Ataque("Ultima Baza", normal, 140, 0);
 
         //TOGEPI
-        Ataque poderPasado = new Ataque("Poder Pasado", roca, 60);
+        Ataque poderPasado = new Ataque("Poder Pasado", roca, 60, 0);
 
 
         //WAILORD
-        Ataque ataquePesado = new Ataque("Ataque Pesado", normal, 150);
-        Ataque desenrrollar = new Ataque("Desenrrollar", roca, 30);
-        Ataque hidropulso = new Ataque("Hidropulso", agua, 60);
+        Ataque ataquePesado = new Ataque("Ataque Pesado", normal, 150, 0);
+        Ataque desenrrollar = new Ataque("Desenrrollar", roca, 30, 0);
+        Ataque hidropulso = new Ataque("Hidropulso", agua, 60, 0);
 
 
         //*******************************************
@@ -129,6 +136,8 @@ public class Main {
 
 
         /**
+         * ESTO SON MIS NOTAS PARA ENTENDER QUE TENÍA QUE IR HACIENDO
+         *
          *  1. Crear un menú para elegir los pokemons
          *      -Crear array de entrenadaores
          *      -Rellenar esos arrays con los pokemons
@@ -137,10 +146,14 @@ public class Main {
          *  4. Cuando gane el entrenador se acaba el programa.
          */
 
+        //Aquí se crea el menú donde los entrenadores eligen a sus pokemons con un do while
+        //En este menú se irán añadiendo al arr de cada entrenador hasta 3 pokemons
+
         Scanner scan = new Scanner(System.in);
         int elegirPokemon1;
         int elegirPokemon2;
 
+        //El arr es de 4 porque luego he puesto .length -1 más abajo, sino podría haber puesto 3
         Pokemon entrenador1[] = new Pokemon[4];
         Pokemon entrenador2[] = new Pokemon[4];
 
@@ -148,13 +161,13 @@ public class Main {
         int pokemonTotales2 = 0;
 
         System.out.println("Ahora en la liga pokemon, nuestros entrenadores escogerán hasta 3 de estos pokemons.");
-        System.out.println("Los pokemons a elegir son: " +
+        System.out.println("Los pokemons a elegir son: " + ANSI_GREEN +
                 "\n 1. Pikachu" +
                 "\n 2. Sunflora" +
                 "\n 3. Haunter" +
                 "\n 4. Vaporeon" +
                 "\n 5. Togepi" +
-                "\n 6. Wailord");
+                "\n 6. Wailord" + ANSI_RESET);
 
         System.out.println("Ash ketchump elige sus pokemones:  ");
         do {
@@ -315,47 +328,63 @@ public class Main {
 
         int pokAsh = 0;
         int pokGary = 0;
-
+/**
+ * Vamos a explicar como funciona este menú:
+ * Primero creamos un do while que recoja las acciones de Ash y Gary
+ * creamos unos int que representen el num del pokemon del arr de Ash y Gary pokAsh, pokGary respectivamente y lo inializamos en 0
+ * como ahora pokAsh es 0, si lo colocamos dentro del arr entrenador1[pokAsh] será como colocar 0
+ * Creamos un for para movernos por los pokemons de Ash y Gary y escribimos entrenador1[pokAsh].ataques.length
+ * para que cuando cambie el pokemon también camien los atk a mostrar
+ * Además con && ntrenador1[pokAsh].ataques[i] != null -> nos ayuda a que solo muestre los huecos que no sean null del array de ataques de cada pokemon
+ * Dentro del for i+1 -> hace que i que es desde un principio 0 sea 1. para que sea más  intuitivo el menú de selección de ataques
+ * i -> es 0 desde un principio y como se mueve a través del array  -> entrenador1[pokAsh].ataques[i].nombre ---> muestra los nombres de los ataques
+ */
         do {
-            System.out.println(entrenador1[pokAsh].nombre + " debe elegir qué usar: ");
-            for(int i=0; i<entrenador1[pokAsh].ataques.length && entrenador1[pokAsh].ataques[i] != null; i++) {
-                System.out.print("\n"+(i+1)+"." + entrenador1[pokAsh].ataques[i].nombre);
+            System.out.println(ANSI_PURPLE+entrenador1[pokAsh].nombre + ANSI_RESET+" debe elegir qué usar: ");
+            for (int i = 0; i < entrenador1[pokAsh].ataques.length && entrenador1[pokAsh].ataques[i] != null; i++) {
+                System.out.print(ANSI_BLUE + "\n" + (i + 1) + "." + entrenador1[pokAsh].ataques[i].nombre + "\n" + ANSI_RESET);
             }
 
 
-
+        //Este menú es más sencillo, te muestra los nombres de los ataques a elegir y la vida del pokemon al que has atacado
             elegirAtaqueAsh = scan.nextInt();
 
             switch (elegirAtaqueAsh) {
                 case 1:
                     entrenador2[pokGary].recibirAtk(entrenador1[pokAsh].ataques[0]);
-                    System.out.println("El pokemon de Gary, " + entrenador2[0].nombre + " tiene ahora " + entrenador2[0].vida);
+                    System.out.println("El pokemon de " + ANSI_GREEN + "Gary, " + ANSI_RESET + entrenador2[pokGary].nombre + " tiene ahora " + ANSI_YELLOW + entrenador2[pokGary].vida + ANSI_RESET);
                     break;
                 case 2:
                     entrenador2[pokGary].recibirAtk(entrenador1[pokAsh].ataques[1]);
-                    System.out.println("El pokemon de Gary, " + entrenador2[0].nombre + " tiene ahora " + entrenador2[0].vida);
+                    System.out.println("El pokemon de " + ANSI_GREEN + "Gary, " + ANSI_RESET + entrenador2[pokGary].nombre + " tiene ahora " + ANSI_YELLOW + entrenador2[pokGary].vida + ANSI_RESET);
                     break;
                 case 3:
                     entrenador2[pokGary].recibirAtk(entrenador1[pokAsh].ataques[2]);
-                    System.out.println("El pokemon de Gary, " + entrenador2[0].nombre + " tiene ahora " + entrenador2[0].vida);
+                    System.out.println("El pokemon de " + ANSI_GREEN + "Gary, " + ANSI_RESET + entrenador2[pokGary].nombre + " tiene ahora " + ANSI_YELLOW + entrenador2[pokGary].vida + ANSI_RESET);
                     break;
                 case 4:
                     entrenador2[pokGary].recibirAtk(entrenador1[pokAsh].ataques[3]);
-                    System.out.println("El pokemon de Gary, " + entrenador2[0].nombre + " tiene ahora " + entrenador2[0].vida);
+                    System.out.println("El pokemon de " + ANSI_GREEN + "Gary, " + ANSI_RESET + entrenador2[pokGary].nombre + " tiene ahora " + ANSI_YELLOW + entrenador2[pokGary].vida + ANSI_RESET);
                     break;
             }
-            if (entrenador2[pokGary].vida <= 0){
-                System.out.println("El pokemon de Gary, " + entrenador2[pokGary].nombre + " ha caido derrotado. Saca su sigueinte pokemon");
+            //Aquí decimos que si un pokemon muere, pase al siguiente
+            if (entrenador2[pokGary].vida <= 0) {
+                System.err.println("El pokemon de Gary, " + entrenador2[pokGary].nombre + " ha caido derrotado. Saca su siguiente pokemon");
                 pokGary++;
+                //Da un bug al final cuando todos los pokemon del rival mueren, pero con esto nos salimos del programa antes de que eso ocurra
+                if (pokGary >= 3) {
+                    System.exit(0);
+                }
             }
 
 
             //***********
 
+        //Copiamos el mismo menú de arriba pero con parámetros distintos.
+            System.out.println(ANSI_PURPLE +entrenador2[pokGary].nombre + ANSI_RESET + " debe elegir qué usar: ");
 
-            System.out.println(entrenador2[pokGary].nombre + " debe elegir qué usar: ");
-            for(int i=0; i<entrenador2[pokGary].ataques.length && entrenador2[pokGary].ataques[i] != null; i++) {
-                System.out.print("\n"+(i+1)+"." + entrenador2[pokGary].ataques[i].nombre);
+            for (int i = 0; i < entrenador2[pokGary].ataques.length && entrenador2[pokGary].ataques[i] != null; i++) {
+                System.out.print(ANSI_BLUE + "\n" + (i + 1) + "." + entrenador2[pokGary].ataques[i].nombre + "\n" + ANSI_RESET);
             }
 
 
@@ -364,24 +393,27 @@ public class Main {
             switch (elegirAtaqueGary) {
                 case 1:
                     entrenador1[pokAsh].recibirAtk(entrenador2[pokGary].ataques[0]);
-                    System.out.println("El pokemon de Gary, " + entrenador1[0].nombre + " tiene ahora " + entrenador1[0].vida);
+                    System.out.println("El pokemon de " + ANSI_GREEN + "Ash, " + ANSI_RESET + entrenador1[pokAsh].nombre + " tiene ahora " + ANSI_YELLOW + entrenador1[pokAsh].vida + ANSI_RESET);
                     break;
                 case 2:
                     entrenador1[pokAsh].recibirAtk(entrenador2[pokGary].ataques[1]);
-                    System.out.println("El pokemon de Gary, " + entrenador1[0].nombre + " tiene ahora " + entrenador1[0].vida);
+                    System.out.println("El pokemon de " + ANSI_GREEN + "Ash, " + ANSI_RESET + entrenador1[pokAsh].nombre + " tiene ahora " + ANSI_YELLOW + entrenador1[pokAsh].vida + ANSI_RESET);
                     break;
                 case 3:
                     entrenador1[pokAsh].recibirAtk(entrenador2[pokGary].ataques[2]);
-                    System.out.println("El pokemon de Gary, " + entrenador1[0].nombre + " tiene ahora " + entrenador1[0].vida);
+                    System.out.println("El pokemon de " + ANSI_GREEN + "Ash, " + ANSI_RESET + entrenador1[pokAsh].nombre + " tiene ahora " + ANSI_YELLOW + entrenador1[pokAsh].vida + ANSI_RESET);
                     break;
                 case 4:
                     entrenador1[pokAsh].recibirAtk(entrenador2[pokGary].ataques[3]);
-                    System.out.println("El pokemon de Gary, " + entrenador1[0].nombre + " tiene ahora " + entrenador1[0].vida);
+                    System.out.println("El pokemon de " + ANSI_GREEN + "Ash, " + ANSI_RESET + entrenador1[pokAsh].nombre + " tiene ahora " + ANSI_YELLOW + entrenador1[pokAsh].vida + ANSI_RESET);
                     break;
             }
-            if (entrenador1[pokAsh].vida <= 0){
-                System.out.println("El pokemon de Ash, " + entrenador1[pokAsh].nombre + " ha caido derrotado. Saca su sigueinte pokemon");
+            if (entrenador1[pokAsh].vida <= 0) {
+                System.err.println("El pokemon de Ash, " + entrenador1[pokAsh].nombre + " ha caido derrotado. Saca su siguiente pokemon");
                 pokAsh++;
+                if (pokAsh >= 3) {
+                    System.exit(0);
+                }
             }
 
 
@@ -402,11 +434,6 @@ public class Main {
                 }
             }
          */
-
-
-
-
-
 
 
     }
