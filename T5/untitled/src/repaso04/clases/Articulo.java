@@ -8,9 +8,8 @@ public class Articulo {
     private String tipo;
 
 
-
     //Constructor
-    public Articulo(String nombre, double precio, int cuantosQuedan,String tipo) {
+    public Articulo(String nombre, double precio, int cuantosQuedan, String tipo) {
         this.nombre = nombre;
         if (precio >= 0) {
             this.precio = precio;
@@ -20,7 +19,7 @@ public class Articulo {
             this.cuantosQuedan = cuantosQuedan;
         }
 
-        if (tipo.equals("G")  || tipo.equals("R")||tipo.equals("SR")) {
+        if (tipo.equals("G") || tipo.equals("R") || tipo.equals("SR")) {
             this.tipo = tipo;
         }
     }
@@ -68,11 +67,12 @@ public class Articulo {
     }
 
 
-
     //Getter and Setter
     public String getTipo() {
+
         return tipo;
     }
+
     public String getNombre() {
         return nombre;
     }
