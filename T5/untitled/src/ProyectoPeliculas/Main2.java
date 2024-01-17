@@ -88,6 +88,18 @@ public class Main2 {
 
                     return;
                 case 7:
+                    System.out.print("Introduzca el director: ");
+                    String nombreDirector = scan.nextLine();
+                    for (int i = 0; i < peliculas.size(); i++) {
+                        if (peliculas.get(i).getCrew().contains(nombreDirector)) {
+                            System.out.println(" - " + peliculas.get(i).getImDbRating() + " " + peliculas.get(i).getFullTitle() + " " + peliculas.get(i).getYear());
+
+                        }else if (!peliculas.get(i).getCrew().contains(nombreDirector)){
+                            System.out.println("Director no encontrado");
+                            break;
+                        }
+                    }
+
 
                     return;
             }

@@ -13,6 +13,18 @@ public class Pelicula {
     private String imDbRating;
     private String imDbRatingCount;
 
+    public  Pelicula(){}
+    public Pelicula (String id, String title, String year, String dir, String act1, String act2,String imDbRating){
+
+        setTitle(title);
+        setYear(year);
+        setFullTitle();
+        setCrew(dir, act1, act2);
+        setImDbRating(imDbRating);
+        setId(id);
+
+    }
+
 
     public String getId() {
         return id;
@@ -27,7 +39,17 @@ public class Pelicula {
     }
 
     public void setRank(String rank) {
-        this.rank = rank;
+        try {
+            if (Integer.parseInt(rank) > 0 || Integer.parseInt(rank) < 250) {
+                this.rank = rank;
+            } else {
+                this.rank = "-1";
+            }
+        } catch (ClassCastException e) {
+            e.printStackTrace();
+            this.rank = "-1";
+        }
+
     }
 
     public String getTitle() {
@@ -42,8 +64,12 @@ public class Pelicula {
         return fullTitle;
     }
 
-    public void setFullTitle(String fullTitle) {
-        this.fullTitle = fullTitle;
+    private void setFullTitle() {
+
+        //Set fullTitle se compone de title + year
+        this.fullTitle = this.title + " (" + this.year + ")";
+
+
     }
 
     public String getYear() {
@@ -51,7 +77,18 @@ public class Pelicula {
     }
 
     public void setYear(String year) {
-        this.year = year;
+        //El año no puede ser negativo y debe ser un número
+        try {
+            if (Integer.parseInt(year) > 0) {
+                this.year = year;
+            } else {
+                this.year = "1900";
+            }
+        } catch (ClassCastException e) {
+            e.printStackTrace();
+            this.year = "1900";
+        }
+
     }
 
     public String getImage() {
@@ -66,8 +103,8 @@ public class Pelicula {
         return crew;
     }
 
-    public void setCrew(String crew) {
-        this.crew = crew;
+    public void setCrew(String dir, String act1, String act2) {
+        this.crew = dir + " (dir.)" + act1 + act2;
     }
 
     public String getImDbRating() {
@@ -75,8 +112,21 @@ public class Pelicula {
     }
 
     public void setImDbRating(String imDbRating) {
-        this.imDbRating = imDbRating;
+        try {
+            if (Double.parseDouble(imDbRating) > 0) {
+                this.imDbRating = imDbRating;
+            } else {
+                this.imDbRating = "0.0";
+            }
+        } catch (ClassCastException e) {
+            e.printStackTrace();
+            this.imDbRating = "0.0";
+        }
+
     }
+
+
+
 
     public String getImDbRatingCount() {
         return imDbRatingCount;
