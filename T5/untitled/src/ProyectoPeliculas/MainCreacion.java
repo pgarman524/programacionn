@@ -31,7 +31,8 @@ Hacer un menú para dar la opción de crear un nuevo registro
                                         
                         1. Insertar película.
                         2. Mostrar películas de mayor a menor.
-                        3. Mostrar películas de menor a mayor.
+                        3. Eliminar una película (Por nombre y por Rank).
+                        4. Modificar película (Título, Año, Crew)                       
                         0. Salir.
                                         
                         Escoja una opción:
@@ -54,6 +55,12 @@ Hacer un menú para dar la opción de crear un nuevo registro
                         PeliculasService.eliminarPeliculas();
 
                         break;
+
+                    case 4:
+                        PeliculasService.modificarPelicula();
+
+                        break;
+
                     case 0:
                         System.out.println("Adios.");
                         break;

@@ -37,21 +37,19 @@ public class PeliculasService {
             scan.nextLine();
             System.out.println("Dime el año de publicación  de la película: ");
             anio = scan.nextInt();
+            scan.nextLine();
         } catch (InputMismatchException e) {
             System.out.println("Año erróneo....");
         }
 
         //CREW
         //DIRECTOR
-        scan.nextLine();
         System.out.print("Dime el nombre del director/a: ");
         String nombreDir = scan.nextLine();
         //ACTOR1
-        scan.nextLine();
         System.out.print("Dime el nombre del actor1: ");
         String nombreAct1 = scan.nextLine();
         //ACTOR2
-        scan.nextLine();
         System.out.print("Dime el nombre del actor2: ");
         String nombreAct2 = scan.nextLine();
 
@@ -62,9 +60,9 @@ public class PeliculasService {
         //NOTA
         double nota = 0.0;
         try {
-            scan.nextLine();
             System.out.println("Dime la nota de la película: ");
             nota = scan.nextDouble();
+            scan.nextLine();
         } catch (InputMismatchException e) {
             System.out.println("Nota errónea....");
         }
@@ -129,20 +127,22 @@ public class PeliculasService {
 
         do {
             System.out.println("""
-                    
+                                        
                     1. Eliminar por ranking.
                     2. Eliminar por nombre.
                     0. Salir
-                    
+                                        
                     """);
 
             eleccion = scan.nextInt();
+            scan.nextLine();
 
-            switch (eleccion){
+
+            switch (eleccion) {
                 case 1:
                     String rangoEliminar = "";
                     System.out.print("Dígame el ranking que quiere eliminar: ");
-                    rangoEliminar = scan.next();
+                    rangoEliminar = scan.nextLine();
 
                     for (int i = 0; i < MainCreacion.peliculas.size(); i++) {
 
@@ -154,7 +154,7 @@ public class PeliculasService {
                 case 2:
                     String nombreEliminar = "";
                     System.out.print("Dígame el título que quiere eliminar: ");
-                    nombreEliminar = scan.next();
+                    nombreEliminar = scan.nextLine();
 
                     for (int i = 0; i < MainCreacion.peliculas.size(); i++) {
 
@@ -172,9 +172,78 @@ public class PeliculasService {
                     break;
             }
 
-        }while(eleccion != 0);
+        } while (eleccion != 0);
 
 
     }
 
+
+    public static void modificarPelicula() {
+        Scanner scan = new Scanner(System.in);
+        boolean peliExiste2;
+        try {
+            System.out.println("Qué película desea modificar.");
+            String peliculaModificarElegir = scan.nextLine();
+
+            for (int i = 0; i < MainCreacion.peliculas.size(); i++) {
+
+                if (peliculaModificarElegir.equalsIgnoreCase(MainCreacion.peliculas.get(i).getTitle())) {
+                    int selector;
+                    peliExiste2 = true;
+
+
+                    do {
+                        System.out.println("""
+                                ¿Qué parte quieres modificar:
+                                1. Título
+                                2. Año
+                                3. Nota
+                                4. Director
+                                5. Reparto. Solo actores principales 
+                                0. Salir                          
+                                """);
+                        selector = scan.nextInt();
+                        scan.nextLine();
+
+                        switch (selector) {
+                            case 1:
+
+                                String newNameFilm = scan.nextLine();
+                                MainCreacion.peliculas.get(i).setTitle(newNameFilm);
+
+                                break;
+                            case 2:
+                                String newYearFilm = scan.nextLine();
+                                MainCreacion.peliculas.get(i).setYear(newYearFilm);
+                                break;
+                            case 3:
+                                String newImdbRatingFilm = scan.nextLine();
+                                MainCreacion.peliculas.get(i).setImDbRating(newImdbRatingFilm);
+                                break;
+                            case 4:
+
+
+                                break;
+                            case 5:
+
+
+                                break;
+                            case 0:
+                                break;
+                            default:
+                                System.out.println("Volviendo al menú.");
+                                break;
+
+                        }
+
+                    } while (selector != 0);
+
+                }
+            }
+
+        } catch (Error e) {
+            System.out.println("Película no encontrada");
+
+        }
+    }
 }

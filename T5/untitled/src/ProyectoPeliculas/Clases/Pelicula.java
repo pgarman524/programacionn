@@ -57,7 +57,9 @@ public class Pelicula {
     }
 
     public void setTitle(String title) {
+
         this.title = title;
+        setFullTitle();
     }
 
     public String getFullTitle() {
