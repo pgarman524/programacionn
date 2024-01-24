@@ -83,6 +83,7 @@ public class Pelicula {
         try {
             if (Integer.parseInt(year) > 0) {
                 this.year = year;
+                setFullTitle();
             } else {
                 this.year = "1900";
             }
