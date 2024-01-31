@@ -107,7 +107,7 @@ public class Pelicula {
     }
 
     public void setCrew(String dir, String act1, String act2) {
-        this.crew = dir + " (dir.)" + act1 + act2;
+        this.crew = dir + act1+ ", " + act2 ;
     }
 
     public String getImDbRating() {
