@@ -16,7 +16,7 @@ public class Circulo implements iFIguras2D {
     @Override
     public double perimetro() {
         this.perimetro = 3.14 * diametro;
-        return perimetro;
+        return this.perimetro;
     }
 
     @Override

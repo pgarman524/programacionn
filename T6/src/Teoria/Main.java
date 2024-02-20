@@ -77,9 +77,13 @@ public class Main {
  * Para permitir la "herencia" múltiple.
  *
  *
- *
- *
- *
+ * Objetc:
+ *  + hashCode()
+ *  + getClass()
+ *  + equals(Object o)
+ *  + clone()
+ *  + toString()
+ *  + getName()
  *
  *
  *
