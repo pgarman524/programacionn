@@ -35,7 +35,7 @@ public class AccesoFicheros {
         System.out.println();
 
 
-        //Vamos a intentar vorrar el fichero:
+        //Vamos a intentar borrar el fichero:
 
 
         if (fichero1.delete()) {
