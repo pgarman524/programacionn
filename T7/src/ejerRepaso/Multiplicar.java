@@ -27,7 +27,7 @@ public class Multiplicar {
         if(fichero1.exists() && fichero1.isFile() && fichero1.canWrite()) {
             FileWriter fw = null;
 
-            
+
 
 
         }
