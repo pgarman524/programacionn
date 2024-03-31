@@ -84,6 +84,8 @@ public class GestionFicheroAirBnB {
     public void escribirFicheroAirBnB(ArrayList<Alojamiento> arrAlojamiento) {
         File fichero = new File("src/archivosTema7");
 
+
+
         if (fichero.exists() && fichero.isFile() && fichero.canWrite()) {
             FileWriter fw = null;
             BufferedWriter bw = null;

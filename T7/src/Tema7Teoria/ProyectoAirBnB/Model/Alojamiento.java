@@ -92,4 +92,8 @@ public class Alojamiento implements Comparable<Alojamiento> {
         }
 
     }
+
+    public double getPrecio(Alojamiento alojamiento) {
+        return precio;
+    }
 }
