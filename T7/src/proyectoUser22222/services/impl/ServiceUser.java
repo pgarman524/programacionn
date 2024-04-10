@@ -12,6 +12,7 @@ public class ServiceUser implements BasicServiceUser {
     // ATRIBUTOS
     ArrayList<User> users; // Contiene todos los registros del fichero users.txt
     GestionFicheroUser gestion; // gestion es un objeto para poder llamar a los métodos de GestionFicheroUser
+    String ruta = "src/archivosTema7/users/users.txt";
 
 
     LoggerService ls;
@@ -30,7 +31,7 @@ public class ServiceUser implements BasicServiceUser {
         String passwordUsuario = "";
         String nombre = "";
         boolean isAdmin = false;
-        User usuario = new User(idUsuario, nombre,passwordUsuario, isAdmin);
+
 
         System.out.println("Introduzca su IdUsuario: ");
         idUsuario = scan.nextLine();
@@ -48,9 +49,15 @@ public class ServiceUser implements BasicServiceUser {
             String decision = scan.nextLine();
             if (decision.equalsIgnoreCase("s")){
                 isAdmin = true;
+                User usuario = new User(idUsuario, nombre, passwordUsuario, isAdmin);
                 this.users.add(usuario);
+                ls.logAlta(idUsuario);  //Registra el alta del usuario
+                gestion.anadirFichero(usuario, ruta);
             }else {
+                User usuario = new User(idUsuario, nombre, passwordUsuario, isAdmin);
                 this.users.add(usuario);
+                ls.logAlta(idUsuario);
+                gestion.anadirFichero(usuario, ruta);
             }
 
 
@@ -79,7 +86,7 @@ public class ServiceUser implements BasicServiceUser {
             if (checkUser(idUsuario, passwordUsuario)) {
 
                 System.out.println("Bienvenid@ " + idUsuario);
-                ls.logLogin(idUsuario);
+                ls.logLogin(idUsuario); //Registra el login del usuario
                 return true;
 
             } else {

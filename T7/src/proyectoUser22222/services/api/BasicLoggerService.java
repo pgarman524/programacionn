@@ -1,4 +1,4 @@
-package Tema7.proyectoUser.services.api;
+package proyectoUser22222.services.api;
 
 public interface BasicLoggerService {
     public boolean logAlta (String idUser);

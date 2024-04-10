@@ -6,6 +6,7 @@ import proyectoUser22222.services.impl.ServiceUser;
 
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -16,26 +17,38 @@ public class Main {
         ServiceUser su = new ServiceUser();
 
         int opcion = 1;
+
         do {
-            System.out.println("""
-                    MENÚ PARA INICIAR SESIÓN
-                    1. REGISTRARSE
-                    2. LOGIN
-                    3. SALIR
-                    """);
-            opcion = scan.nextInt();
-            switch (opcion) {
-                case 1:
-                   su.altaUsuario();
-                case 2:
-                  su.loginUsuario();
+            try {
+                System.out.print("""
+                        MENÚ PARA INICIAR SESIÓN
+                        1. REGISTRARSE
+                        2. LOGIN
+                        3. SALIR
+                        """);
 
+                opcion = scan.nextInt();
+                scan.nextLine();
 
-                    break;
-                case 3:
-                    break;
+                switch (opcion) {
+                    case 1:
+                        su.altaUsuario();
+                        break;
+                    case 2:
+                        su.loginUsuario();
+                        break;
+                    case 3:
+                        break;
+                    default:
+
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Error en la opcion");
+                scan.nextLine();
             }
-        }while (opcion != 3);
+        } while (opcion != 3);
 
     }
+
 }
+
