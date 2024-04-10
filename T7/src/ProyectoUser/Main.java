@@ -1,8 +1,7 @@
 package ProyectoUser;
 
 import ProyectoUser.model.Usuario;
-import ProyectoUser.services.GestionFicheroUser;
-import Tema7Teoria.ProyectoTrivial.Services.GestionFichero;
+import ProyectoUser.services.impl.GestionFicheroLogger;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -17,7 +16,7 @@ public class Main {
         ArrayList<Usuario> arrTemporal = new ArrayList<>();
         String ruta = "src/archivosTema7/users/users.txt";
 
-        GestionFicheroUser gf = new GestionFicheroUser();
+        GestionFicheroLogger gf = new GestionFicheroLogger();
 
         gf.leerficheroUsers(ruta);
         ArrayList<Usuario> registros = gf.leerficheroUsers(ruta);
@@ -43,19 +42,25 @@ public class Main {
                     username = scan.next();
                     System.out.print("Ingrese su contraseña: ");
                     password = scan.next();
+                    boolean userExiste = false;
                     try {
                         for (int i = 0; i < registros.size(); i++) {
 
 
                             if (registros.get(i).getId().equalsIgnoreCase(username) && registros.get(i).getPassword().equalsIgnoreCase(password)) {
-                                System.out.println("Inicio de sesión exitoso.");
+
+                                userExiste = true;
                                 break;
-                            } else {
-                                System.out.println("Nombre de usuario o contraseña incorrectos");
                             }
 
 
                         }
+                        if (userExiste) {
+                            System.out.println("Inicio de sesión exitoso.");
+                        } else {
+                            System.out.println("Nombre de usuario o contraseña incorrectos");
+                        }
+
                     } catch (NullPointerException e) {
                         e.printStackTrace();
                     }
