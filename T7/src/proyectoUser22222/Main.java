@@ -48,6 +48,16 @@ public class Main {
             }
         } while (opcion != 3);
 
+
+        /**
+         * En main hacer que solo sea accesible a la parte ya creada si no se ha dado de alta el usuario
+         * Si boolean esLogin = true -> mostrar más opciones del cine : mostrarbutaca, comprar entrada,  devolver entrada, salir
+         *
+         * + ServiceCine -> public comprar entrada, public  mostrar butaca, public devolver butaca
+         * + GestionFicheroCine
+         * Entradas_vendidas.txt
+         *
+        **/
     }
 
 }
