@@ -7,8 +7,8 @@ import java.util.ArrayList;
 
 public class ServiceCine implements BasicServiceCine {
     private String nombreCine;
-    private static final int nFilas = 10;
-    private static final int nAsiento = 10;
+    public static int nFilas = 10;
+    public static int nAsiento = 10;
     private Butaca[][] salaDeCine;
     private GestionFicheroCine gestion;
 
@@ -16,17 +16,43 @@ public class ServiceCine implements BasicServiceCine {
         this.nombreCine = nombreCine;
         this.gestion = new GestionFicheroCine();
         this.salaDeCine = new Butaca[nFilas][nAsiento]; // Aquí, tendríamos un array bidimensional de butaca lleno de nulls
-        this.salaDeCine = gestion.leerFicheroCine(""); //aquí vamosa  leer el fichero para llenar el array de Butaca
+        this.salaDeCine = gestion.leerFicheroCine("src/archivosTema7/users/entradasvendidas.csv"); //aquí vamos a leer el fichero para llenar el array de Butaca
 
     }
+
 
     @Override
     public void mostrarButacas() {
+        int n = 0;
+        for (int i = 0; i < salaDeCine.length; i++) {
+            for (int j = 0; j < salaDeCine[i].length; j++) {
+                if (salaDeCine[i][j] == null) {
+                    System.out.print(" __ ");
+
+                } else {
+                    System.out.print(" XX ");
+                }
+
+
+                n += 1;
+                if (n == 10 || n == 20 || n == 30 || n == 40 || n == 50 || n == 60 || n == 70 || n == 80 || n == 90 || n == 100) {
+                    System.out.println("\n");
+                }
+
+                // Si salaDeCine[i][j] == null
+                // Muestras __
+                // Si no
+                // Muestras XX
+            }
+        }
 
     }
 
+
     @Override
     public boolean comprarEntrada() {
+
+
         return false;
     }
 
