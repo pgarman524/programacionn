@@ -1,0 +1,3 @@
+String url = "jdbc:mysql://localhost:3306/BD?user=root&password=";
+
+DriverManager.getConnection(url);
