@@ -19,6 +19,7 @@ public class ConectarDB {
 
     }
 
+
     public void realizarConexion(){
         try {
             this.connection = DriverManager.getConnection(this.url);
@@ -36,5 +37,13 @@ public class ConectarDB {
     }
     public Connection obtenerConexion() {
         return this.connection;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public String getPass() {
+        return pass;
     }
 }

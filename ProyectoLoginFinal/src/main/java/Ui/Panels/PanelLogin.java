@@ -27,7 +27,7 @@ public class PanelLogin extends JPanel {
         @Override
         public void mouseClicked(MouseEvent e) {
 
-            if (serviceUser.checkUser(user.getText(), pass.getText())) {
+            if (UserService.checkUserExists(user.getText(), pass.getText())) {
                 cargarPanelMenu();
 
             } else {

@@ -1,5 +1,6 @@
 package Services;
 
+import Model.classes.User;
 import Model.db.ConectarDB;
 import Ui.Panels.PanelLogin;
 import Utils.CredentialsDB;
@@ -13,10 +14,10 @@ public class UserService {
         //Crear objeto ConectarBD
         //Realizar conexión
         conexionDB = new ConectarDB(CredentialsDB.USER,CredentialsDB.PASS,CredentialsDB.DB_NAME);
-        ConectarDB c = new ConectarDB();
+
     }
 
-    public boolean checkUserExists(user User) {
+    public boolean checkUserExists(User user) {
         String url = "jdbc:mysql://localhost:3306/bdapp?user=root&password=";
 
         try{
@@ -29,8 +30,13 @@ public class UserService {
             ResultSet rst = st2.executeQuery("SELECT pass FROM usuarios");
 
             while (rs.next()  && rst.next()){
-            if (rs.equals(conexionDB.obtenerConexion())){
+            if (rs.equals(conexionDB.getUser()) && rs.equals(conexionDB.getPass())){
+                rs.close();
+                return true;
 
+            }else {
+                rs.close();
+                return false;
             }
 
 
