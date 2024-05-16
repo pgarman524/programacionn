@@ -9,33 +9,34 @@ import java.sql.*;
 
 public class UserService {
     private ConectarDB conexionDB;
+    User u;
 
     public UserService() {
         //Crear objeto ConectarBD
         //Realizar conexión
         conexionDB = new ConectarDB(CredentialsDB.USER,CredentialsDB.PASS,CredentialsDB.DB_NAME);
+        conexionDB.realizarConexion();
 
     }
 
     public boolean checkUserExists(User user) {
-        String url = "jdbc:mysql://localhost:3306/bdapp?user=root&password=";
+            try{
 
-        try{
-
-            Connection connection = DriverManager.getConnection(url);
-            Statement stmt = connection.createStatement();
+            conexionDB.realizarConexion();
+            //Statement stmt = connection.createStatement();
+            Statement stmt = conexionDB.obtenerConexion().createStatement();
             ResultSet rs = stmt.executeQuery("SELECT correo FROM usuarios");
 
-            Statement st2 = connection.createStatement();
+            Statement st2 = conexionDB.obtenerConexion().createStatement();
             ResultSet rst = st2.executeQuery("SELECT pass FROM usuarios");
 
             while (rs.next()  && rst.next()){
             if (rs.equals(conexionDB.getUser()) && rs.equals(conexionDB.getPass())){
-                rs.close();
+               conexionDB.desconectarDB();
                 return true;
 
             }else {
-                rs.close();
+                conexionDB.desconectarDB();
                 return false;
             }
 
