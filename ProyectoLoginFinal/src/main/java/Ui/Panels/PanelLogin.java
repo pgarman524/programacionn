@@ -1,6 +1,7 @@
 package Ui.Panels;
 
 
+import Model.classes.User;
 import Services.UserService;
 import Ui.Frames.FrameLogin;
 
@@ -26,8 +27,8 @@ public class PanelLogin extends JPanel {
     MouseListener listenerMouse = new MouseAdapter() {
         @Override
         public void mouseClicked(MouseEvent e) {
-
-            if (UserService.checkUserExists(user.getText(), pass.getText())) {
+            User u = new User(user.getText(), "", pass.getText(), false);
+            if (serviceUser.checkUserExists(u)) {
                 cargarPanelMenu();
 
             } else {
@@ -113,7 +114,6 @@ public class PanelLogin extends JPanel {
     }
 
 
-
     private void cargarPanelMenu() {
         //this es PanelLogin, pero este exacto PanelLogin. No otro...
         framePadre.remove(this);
@@ -127,3 +127,4 @@ public class PanelLogin extends JPanel {
         framePadre.revalidate();
 
     }
+}
