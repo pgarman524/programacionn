@@ -18,7 +18,7 @@ public class ConexionBD {
     private Connection connection;
 
     public ConexionBD(String user, String password, String BD) {
-        // SE DEBERÍAN COMPROBAR LAS CREDENCIALES DE CONEXIÓN
+        // SE DEBERiAN COMPROBAR LAS CREDENCIALES DE CONEXIÓN
         this.BD = BD;
         this.user = user;
         this.password = password;
