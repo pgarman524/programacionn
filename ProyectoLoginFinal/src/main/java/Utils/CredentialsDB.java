@@ -8,7 +8,7 @@ public class CredentialsDB {
 
     public final static String USER = "root";
     public final static String PASS = "";
-    public final static String DB_NAME ="dbapp";
+    public final static String DB_NAME ="bdapp";
 
 
 

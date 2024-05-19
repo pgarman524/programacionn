@@ -16,7 +16,7 @@ public class ConectarDB {
         this.user = user;
         this.pass = pass;
         this.nombreDB = nombreDB;
-
+        this.url = "jdbc:mysql://localhost:3306/"+this.nombreDB+"?user="+this.user+"&password="+this.pass;
     }
 
 

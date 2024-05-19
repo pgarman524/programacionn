@@ -19,7 +19,7 @@ public class PanelLogin extends JPanel {
     JTextField user;
     JTextField pass;
     JButton bEnviar;
-    JButton bAlta;
+
 
     UserService serviceUser = new UserService();
 
@@ -54,12 +54,6 @@ public class PanelLogin extends JPanel {
          */
     };
 
-    MouseListener listenerMouseAlta = new MouseAdapter() {
-        @Override
-        public void mouseClicked(MouseEvent e) {
-            cargarPanelMenu();
-        }
-    };
 
     public PanelLogin(FrameLogin framePadre) {
 
@@ -95,21 +89,8 @@ public class PanelLogin extends JPanel {
         bEnviar.addMouseListener(listenerMouse);
         this.add(bEnviar);
 
-        bAlta = new JButton("Alta");
-        bAlta.setLocation(new Point(290, 268));
-        bAlta.setSize(new Dimension(130, 32));
-        bAlta.addMouseListener(listenerMouseAlta);
-        this.add(bAlta);
 
-// para que al pulsar enter te dirija al panelOpciones
-        bEnviar.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                    cargarPanelMenu();
-                }
-            }
-        });
+
 
     }
 
