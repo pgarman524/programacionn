@@ -2,6 +2,7 @@ package Ui.Panels;
 
 
 import Model.classes.User;
+import Model.db.ConectarDB;
 import Services.UserService;
 import Ui.Frames.FrameLogin;
 
@@ -29,6 +30,7 @@ public class PanelLogin extends JPanel {
         public void mouseClicked(MouseEvent e) {
             User u = new User(user.getText(), "", pass.getText(), false);
             if (serviceUser.checkUserExists(u)) {
+
                 cargarPanelMenu();
 
             } else {
@@ -54,6 +56,12 @@ public class PanelLogin extends JPanel {
          */
     };
 
+    MouseListener listenerMouseAlta = new MouseAdapter() {
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            cargarPanelMenu();
+        }
+    };
 
     public PanelLogin(FrameLogin framePadre) {
 
@@ -91,6 +99,15 @@ public class PanelLogin extends JPanel {
 
 
 
+// para que al pulsar enter te dirija al panelOpciones
+        bEnviar.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    cargarPanelMenu();
+                }
+            }
+        });
 
     }
 

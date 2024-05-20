@@ -9,7 +9,7 @@ public class ConectarDB {
     private String user;
     private String pass;
     private String nombreDB;
-    private String url = "jdbc:mysql://localhost:3306/"+this.nombreDB+"?user="+this.user+"&password="+this.pass;
+    private String url;
     private Connection connection;
 
     public ConectarDB(String user, String pass, String nombreDB) {

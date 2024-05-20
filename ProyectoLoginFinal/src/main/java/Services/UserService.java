@@ -20,8 +20,9 @@ public class UserService {
     }
 
     public boolean checkUserExists(User user) {
-        conexionDB.realizarConexion();
-        try{
+            try{
+
+            conexionDB.realizarConexion();
             //Statement stmt = connection.createStatement();
             Statement stmt = conexionDB.obtenerConexion().createStatement();
             ResultSet rs = stmt.executeQuery("SELECT correo FROM usuarios");
